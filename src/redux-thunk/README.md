@@ -9,7 +9,7 @@ function createThunkMiddleware(extraArgument) {
       // 其中有一个假设，就是假定 action 函数内部会触发 dispatch（异步触发）
       // 此时会再次进入 dispatch 流程，进入中间件处理逻辑，而此时的 action 已经变成了正常的格式（ { type, payload } 格式）
       // 所以 thunk 中间件需要放在 applyMiddleWare 的最前面，这样就可以在接收到异步函数时，阻止后续中间件的继续执行（因为 action 不是一个可识别的 action，并且 dispatch 并没有被同步触发）
-      // redux 的中间件应该坚持一个原则：所有传递给下一个 next 函数的 action，都应该是一个正确格式的 action（ { type, payload } 格式）
+      // 所有 redux 的中间件应该坚持一个原则：所有传递给下一个 next 函数的 action，都应该是一个正确格式的 action（ { type, payload } 格式）
       return action(dispatch, getState, extraArgument);
     }
 

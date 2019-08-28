@@ -45,6 +45,7 @@ export default function applyMiddleware(...middlewares) {
         // 开始的中间件会接收上一次函数返回的值为入参（next），所以每一个中间件都应该返回一个接收 action 参数的函数（next 函数）
         // 以便将 action 参数传递给最后一个 dispatch 函数
         // 最后一个中间件将接收 dispatch 为参数（next），中间件应该将 action 返回给 dispatch
+        // 所有 redux 的中间件应该坚持一个原则：所有传递给下一个 next 函数的 action，都应该是一个正确格式的 action（ { type, payload } 格式）
         dispatch = compose(...chain)(store.dispatch)
 
         // 该返回值是 createStore 中包含 enhancer 时的返回值
