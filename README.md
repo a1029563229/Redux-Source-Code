@@ -1,4 +1,4 @@
-# Redux 源码阅读笔记（连载中）
+# Redux 源码阅读笔记（已完结）
 
 + [createStore](https://github.com/a1029563229/Redux-Source-Code/tree/master/src/createStore)
 + [applyMiddleWare](https://github.com/a1029563229/Redux-Source-Code/tree/master/src/applyMiddleWare)
